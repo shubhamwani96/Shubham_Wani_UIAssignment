@@ -1,0 +1,57 @@
+[
+  {
+    "customerId": 1,
+    "name": "Alice",
+    "transactions": [
+      { "month": "January", "amount": 120 },
+      { "month": "January", "amount": 75 },
+      { "month": "February", "amount": 200 },
+      { "month": "February", "amount": 50 },
+      { "month": "March", "amount": 95 }
+    ]
+  },
+  {
+    "customerId": 2,
+    "name": "Bob",
+    "transactions": [
+      { "month": "January", "amount": 45 },
+      { "month": "January", "amount": 150 },
+      { "month": "February", "amount": 85 },
+      { "month": "February", "amount": 130 },
+      { "month": "March", "amount": 55 }
+    ]
+  },
+  {
+    "customerId": 3,
+    "name": "Charlie",
+    "transactions": [
+      { "month": "January", "amount": 60 },
+      { "month": "January", "amount": 95 },
+      { "month": "February", "amount": 40 },
+      { "month": "February", "amount": 180 },
+      { "month": "March", "amount": 110 }
+    ]
+  },
+  {
+    "customerId": 4,
+    "name": "David",
+    "transactions": [
+      { "month": "January", "amount": 55 },
+      { "month": "January", "amount": 70 },
+      { "month": "February", "amount": 140 },
+      { "month": "February", "amount": 90 },
+      { "month": "March", "amount": 105 }
+    ]
+  },
+  {
+    "customerId": 5,
+    "name": "Emma",
+    "transactions": [
+      { "month": "January", "amount": 130 },
+      { "month": "January", "amount": 85 },
+      { "month": "February", "amount": 75 },
+      { "month": "February", "amount": 60 },
+      { "month": "March", "amount": 200 }
+    ]
+  }
+]
