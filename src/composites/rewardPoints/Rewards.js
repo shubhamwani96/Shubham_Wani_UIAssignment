@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table } from "../../components/table/Table";
 
 // Main React Component
-export const RewardPoint = () => {
+export const Rewards = () => {
   const [rewards, setRewards] = useState([]);
   const [customerData, setCustomerData] = useState([]);
 
@@ -27,16 +27,19 @@ export const RewardPoint = () => {
   // Function to calculate reward points
 
   const calculatePoints = (amount) => {
+    const purchaseAmount = parseFloat(amount);
+
     let points = 0;
-    if (amount > 100) {
-      points += (amount - 100) * 2;
-      amount = 100;
+    if (purchaseAmount > 100) {
+      points += (purchaseAmount - 100) * 2; // 2 points for each dollar over $100
+      points += 50; // 50 points for the $50 between $50 and $100
+    } else if (purchaseAmount > 50) {
+      points += purchaseAmount - 50; // 1 point for each dollar over $50
     }
-    if (amount > 50) {
-      points += (amount - 50) * 1;
-    }
+
     return points;
   };
+  console.log(calculatePoints);
 
   // Process transactions to calculate rewards
   const calculateRewards = () => {
@@ -66,12 +69,15 @@ export const RewardPoint = () => {
       <Table
         tablename={"Customer Rewards Program"}
         rewards={rewards}
-        heading1={"Customer ID"}
-        heading2={"January"}
-        heading3={"February"}
-        heading4={"March"}
-        heading5={"Total Points"}
+        schema={[
+          { index: 0, label: "Customer ID" },
+          { index: 1, label: "January" },
+          { index: 2, label: "February" },
+          { index: 3, label: "March" },
+          { index: 4, label: "Total Points" },
+        ]}
       />
+
       <button onClick={calculateRewards} style={{ marginBottom: "20px" }}>
         Calculate Rewards
       </button>
