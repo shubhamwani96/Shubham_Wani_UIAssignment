@@ -41,7 +41,7 @@ export const Table = (prop) => {
       ) : (
         <p>
           {
-            "No data available to display. Please Click the below button to fetch the data."
+            "No data available to display. Please click on the below button to fetch the data."
           }
         </p>
       )}
