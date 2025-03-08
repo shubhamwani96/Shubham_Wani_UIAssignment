@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "../../components/table/Table";
 import "../../../src/global.css";
+import "../../../src/composites/rewardPoints/rewardStyles.css"
 import { Button } from "../../components/button/Button";
 
 export const RewardPoints = () => {
@@ -107,10 +108,12 @@ export const RewardPoints = () => {
           { index: 5, label: "Total Reward Points" },
         ]}
       />
-
-      <Button onClick={calculateMonthlyRewardPoints}>
-        {"Calculate Rewards"}
-      </Button>
+      <div className={"Reward"}>
+        <Button onClick={calculateMonthlyRewardPoints}>
+          {"Calculate Rewards"}
+        </Button>
+        <Button onClick={() => setRewards([])}>{"Close"}</Button>
+      </div>
     </div>
   );
 };
