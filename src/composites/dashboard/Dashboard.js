@@ -1,10 +1,14 @@
-import { Rewards } from "../rewardPoints/Rewards.js";
+import { RewardsPoints } from "../rewardPoints/RewardsPoints.js";
 import { Transaction } from "../transactionRecord/Transaction.js";
-// Main React Component
+
+/**
+ *Dashboard Composite
+ */
+
 export const Dashboard = () => {
   return (
     <>
-      <Rewards />
+      <RewardsPoints />
       <Transaction />
     </>
   );

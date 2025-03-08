@@ -1,41 +1,54 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "../../components/table/Table";
 
-// Main React Component
 export const Transaction = () => {
   const [transactionData, setTransactionData] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the local JSON file
+    /**
+     *Fetch data from the local JSON file
+     */
+
     fetch("http://localhost:3000/CustomerData.json")
       .then((response) => {
-        console.log(response);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         return response.json();
       })
       .then((data) => {
-        setTransactionData(data); // Update state with the fetched data
+        setTransactionData(data);
+        /**
+         *Update state with the fetched data
+         */
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
       });
-  }, []); // Empty dependency array ensures this effect runs only once after the initial render
+  }, []);
+
+  /**
+   *Empty dependency array ensures this effect runs only once after the initial render
+   */
+
+  /**
+   * Function to calculate reward points for each transaction
+   */
+
   const calculatePoints = (amount) => {
     const purchaseAmount = parseFloat(amount);
 
     let points = 0;
     if (purchaseAmount > 100) {
-      points += (purchaseAmount - 100) * 2; // 2 points for each dollar over $100
-      points += 50; // 50 points for the $50 between $50 and $100
+      points += (purchaseAmount - 100) * 2;
+      points += 50;
     } else if (purchaseAmount > 50) {
-      points += purchaseAmount - 50; // 1 point for each dollar over $50
+      points += purchaseAmount - 50;
     }
 
     return points;
   };
-  // Function to calculate reward points
+
   const flattenedData = transactionData.flatMap((customer) =>
     customer.transactions.map((transaction, index) => ({
       key: `${customer.customerId}-${index}`,
@@ -48,7 +61,7 @@ export const Transaction = () => {
   );
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
+    <div className={"Wrapper"}>
       <Table
         tablename={"Transaction Record"}
         tran={flattenedData}
