@@ -35,7 +35,7 @@ export const Transaction = () => {
    * Function to calculate reward points for each transaction
    */
 
-  const calculatePoints = (amount) => {
+  const calculateRewardPoints = (amount) => {
     const purchaseAmount = parseFloat(amount);
 
     let points = 0;
@@ -56,7 +56,7 @@ export const Transaction = () => {
       name: customer.name,
       month: transaction.month,
       amount: transaction.amount,
-      point: calculatePoints(transaction.amount),
+      point: calculateRewardPoints(transaction.amount),
     }))
   );
 
