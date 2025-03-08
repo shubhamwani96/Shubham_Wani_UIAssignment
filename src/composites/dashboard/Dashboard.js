@@ -1,4 +1,4 @@
-import { RewardsPoints } from "../rewardPoints/RewardsPoints.js";
+import { RewardPoints } from "../rewardPoints/RewardPoints.js";
 import { Transaction } from "../transactionRecord/Transaction.js";
 
 /**
@@ -8,7 +8,7 @@ import { Transaction } from "../transactionRecord/Transaction.js";
 export const Dashboard = () => {
   return (
     <>
-      <RewardsPoints />
+      <RewardPoints />
       <Transaction />
     </>
   );

@@ -17,7 +17,12 @@ export const Transaction = () => {
         return response.json();
       })
       .then((data) => {
-        setTransactionData(data);
+        if (data.length > 0) {
+          setTransactionData(data);
+        } else {
+          setTransactionData([]);
+        }
+
         /**
          *Update state with the fetched data
          */
@@ -63,7 +68,7 @@ export const Transaction = () => {
   return (
     <div className={"Wrapper"}>
       <Table
-        tablename={"Transaction Record"}
+        tablename={"Transaction Records"}
         tran={flattenedData}
         schema={[
           { index: 0, label: "Customer ID" },

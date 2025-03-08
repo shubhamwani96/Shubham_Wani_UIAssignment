@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "../../components/table/Table";
 import "../../../src/global.css";
-import { Button } from "../../components/button/Buttonc";
+import { Button } from "../../components/button/Button";
 
-export const RewardsPoints = () => {
+export const RewardPoints = () => {
   const [rewards, setRewards] = useState([]);
   const [customerData, setCustomerData] = useState([]);
 
@@ -23,7 +23,12 @@ export const RewardsPoints = () => {
         /**
          *Update state with the fetched data
          */
-        setCustomerData(data);
+
+        if (data.length > 0) {
+          setCustomerData(data);
+        } else {
+          setCustomerData([]);
+        }
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -91,7 +96,7 @@ export const RewardsPoints = () => {
   return (
     <div className={"Wrapper"}>
       <Table
-        tablename={"Customer Rewards Program"}
+        tablename={"Customer Reward Program"}
         rewards={rewards}
         schema={[
           { index: 0, label: "Customer ID" },

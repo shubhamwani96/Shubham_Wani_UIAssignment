@@ -39,7 +39,11 @@ export const Table = (prop) => {
           </tbody>
         </table>
       ) : (
-        <p>{"No data available to display."}</p>
+        <p>
+          {
+            "No data available to display. Please Click the below button to fetch the data."
+          }
+        </p>
       )}
     </div>
   );
