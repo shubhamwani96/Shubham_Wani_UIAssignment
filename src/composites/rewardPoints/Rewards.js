@@ -39,7 +39,6 @@ export const Rewards = () => {
 
     return points;
   };
-  console.log(calculatePoints);
 
   // Process transactions to calculate rewards
   const calculateRewards = () => {
@@ -71,10 +70,11 @@ export const Rewards = () => {
         rewards={rewards}
         schema={[
           { index: 0, label: "Customer ID" },
-          { index: 1, label: "January" },
-          { index: 2, label: "February" },
-          { index: 3, label: "March" },
-          { index: 4, label: "Total Points" },
+          { index: 1, label: "Name" },
+          { index: 2, label: "January" },
+          { index: 3, label: "February" },
+          { index: 4, label: "March" },
+          { index: 5, label: "Total Reward Points" },
         ]}
       />
 

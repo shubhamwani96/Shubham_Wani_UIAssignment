@@ -22,7 +22,19 @@ export const Transaction = () => {
         console.error("There was a problem with the fetch operation:", error);
       });
   }, []); // Empty dependency array ensures this effect runs only once after the initial render
+  const calculatePoints = (amount) => {
+    const purchaseAmount = parseFloat(amount);
 
+    let points = 0;
+    if (purchaseAmount > 100) {
+      points += (purchaseAmount - 100) * 2; // 2 points for each dollar over $100
+      points += 50; // 50 points for the $50 between $50 and $100
+    } else if (purchaseAmount > 50) {
+      points += purchaseAmount - 50; // 1 point for each dollar over $50
+    }
+
+    return points;
+  };
   // Function to calculate reward points
   const flattenedData = transactionData.flatMap((customer) =>
     customer.transactions.map((transaction, index) => ({
@@ -31,6 +43,7 @@ export const Transaction = () => {
       name: customer.name,
       month: transaction.month,
       amount: transaction.amount,
+      point: calculatePoints(transaction.amount),
     }))
   );
 
@@ -41,9 +54,10 @@ export const Transaction = () => {
         tran={flattenedData}
         schema={[
           { index: 0, label: "Customer ID" },
-          { index: 1, label: "name" },
-          { index: 2, label: "month" },
-          { index: 3, label: "amount" },
+          { index: 1, label: "Name" },
+          { index: 2, label: "Month" },
+          { index: 3, label: "Amount" },
+          { index: 3, label: "Reward Points" },
         ]}
       />
     </div>

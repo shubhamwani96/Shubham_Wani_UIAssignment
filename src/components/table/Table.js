@@ -20,6 +20,7 @@ export const Table = ({ tablename, rewards, schema, tran }) => {
               rewards.map((customer) => (
                 <tr key={customer.customerId}>
                   <td>{customer.customerId}</td>
+                  <td>{customer.name}</td>
                   <td>{customer.monthlyRewards["January"] || 0}</td>
                   <td>{customer.monthlyRewards["February"] || 0}</td>
                   <td>{customer.monthlyRewards["March"] || 0}</td>
@@ -35,6 +36,7 @@ export const Table = ({ tablename, rewards, schema, tran }) => {
                   <td>{transaction.name}</td>
                   <td>{transaction.month}</td>
                   <td>{transaction.amount}</td>
+                  <td>{transaction.point}</td>
                 </tr>
               ))}
           </tbody>
