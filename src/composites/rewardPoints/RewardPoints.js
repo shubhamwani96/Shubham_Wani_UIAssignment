@@ -10,7 +10,7 @@ export const RewardPoints = (prop) => {
   const [rewardCustomerData, setRewardCustomerData] = useState([]);
 
   useEffect(() => {
-    if ( prop.rewardData?.length > 0) {
+    if (prop.rewardData?.length > 0) {
       setRewardCustomerData(prop.rewardData);
     } else {
       setRewardCustomerData([]);
@@ -27,8 +27,12 @@ export const RewardPoints = (prop) => {
       let totalRewards = 0;
 
       customer.transactions.forEach(({ month, amount }) => {
+        const formatMonth = new Date(month).toLocaleString("default", {
+          month: "long",
+        });
         const points = calculateRewardPoints(amount);
-        monthlyRewards[month] = (monthlyRewards[month] || 0) + points;
+        monthlyRewards[formatMonth] =
+          (monthlyRewards[formatMonth] || 0) + points;
         totalRewards += points;
       });
 
@@ -51,9 +55,9 @@ export const RewardPoints = (prop) => {
         schema={[
           { index: 0, label: "Customer ID" },
           { index: 1, label: "Name" },
-          { index: 2, label: "January" },
-          { index: 3, label: "February" },
-          { index: 4, label: "March" },
+          { index: 2, label: "January 2025" },
+          { index: 3, label: "February 2025" },
+          { index: 4, label: "March 2025" },
           { index: 5, label: "Total Reward Points" },
         ]}
       />
