@@ -1,36 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "../../components/table/Table";
+import { calculateRewardPoints } from "../../utility/CalculateRewardPoints";
 
-export const Transaction = () => {
+export const Transaction = (prop) => {
   const [transactionData, setTransactionData] = useState([]);
 
   useEffect(() => {
-    /**
-     *Fetch data from the local JSON file
-     */
-
-    fetch("http://localhost:3000/CustomerData.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (data.length > 0) {
-          setTransactionData(data);
-        } else {
-          setTransactionData([]);
-        }
-
-        /**
-         *Update state with the fetched data
-         */
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
-  }, []);
+    if (prop.transactionData?.length > 0) {
+      setTransactionData(prop.transactionData);
+    } else {
+      setTransactionData([]);
+    }
+  }, [prop.transactionData]);
 
   /**
    *Empty dependency array ensures this effect runs only once after the initial render
@@ -39,20 +20,6 @@ export const Transaction = () => {
   /**
    * Function to calculate reward points for each transaction
    */
-
-  const calculateRewardPoints = (amount) => {
-    const purchaseAmount = parseFloat(amount);
-
-    let points = 0;
-    if (purchaseAmount > 100) {
-      points += (purchaseAmount - 100) * 2;
-      points += 50;
-    } else if (purchaseAmount > 50) {
-      points += purchaseAmount - 50;
-    }
-
-    return points;
-  };
 
   const flattenedData = transactionData.flatMap((customer) =>
     customer.transactions.map((transaction, index) => ({

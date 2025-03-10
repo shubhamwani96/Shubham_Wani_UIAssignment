@@ -1,79 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "../../components/table/Table";
 import "../../../src/global.css";
-import "../../../src/composites/rewardPoints/rewardStyles.css"
+import "../../../src/composites/rewardPoints/rewardStyles.css";
 import { Button } from "../../components/button/Button";
+import { calculateRewardPoints } from "../../utility/CalculateRewardPoints";
 
-export const RewardPoints = () => {
+export const RewardPoints = (prop) => {
   const [rewards, setRewards] = useState([]);
-  const [customerData, setCustomerData] = useState([]);
+  const [rewardCustomerData, setRewardCustomerData] = useState([]);
 
   useEffect(() => {
-    /**
-     *Fetch data from the local JSON file
-     */
-
-    fetch("http://localhost:3000/CustomerData.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        /**
-         *Update state with the fetched data
-         */
-
-        if (data.length > 0) {
-          setCustomerData(data);
-        } else {
-          setCustomerData([]);
-        }
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
-  }, []);
-
-  /**
-   *Empty dependency array ensures this effect runs only once after the initial render
-   */
-
-  /**
-   * Function to calculate reward points for each transaction
-   */
-
-  const calculateRewardPoints = (amount) => {
-    const purchaseAmount = parseFloat(amount);
-
-    let points = 0;
-    if (purchaseAmount > 100) {
-      /**
-       *  2 points for each dollar over $100
-       */
-      points += (purchaseAmount - 100) * 2;
-      /**
-       *  50 points for the $50 between $50 and $100
-       */
-
-      points += 50;
-    } else if (purchaseAmount > 50) {
-      /**
-       *  1 point for each dollar over $50
-       */
-      points += purchaseAmount - 50;
+    if ( prop.rewardData?.length > 0) {
+      setRewardCustomerData(prop.rewardData);
+    } else {
+      setRewardCustomerData([]);
     }
-
-    return points;
-  };
+  }, [prop.rewardData]);
 
   /**
    * Calculate Monthly and Total Reward Points
    */
 
   const calculateMonthlyRewardPoints = () => {
-    const rewardSummary = customerData.map((customer) => {
+    const rewardSummary = rewardCustomerData.map((customer) => {
       let monthlyRewards = {};
       let totalRewards = 0;
 
