@@ -12,7 +12,7 @@ export const Table = (prop) => {
           <thead>
             <tr>
               {prop.schema?.map((column, index) => (
-                <th key={index.February}>{column.label}</th>
+                <th key={index}>{column.label}</th>
               ))}
             </tr>
           </thead>
