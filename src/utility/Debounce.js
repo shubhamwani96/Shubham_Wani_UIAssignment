@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-// Custom hook to implement debouncing
+/**
+ *Debouncing function for name search
+ *@param prop value, delay as a props"
+ *@returns The hook returns the debouncedValue, which will only update after the user stops changing the value.
+ */
+
 export const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
