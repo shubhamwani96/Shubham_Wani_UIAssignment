@@ -9,6 +9,45 @@ export const RewardPoints = (prop) => {
   const [rewards, setRewards] = useState([]);
   const [rewardCustomerData, setRewardCustomerData] = useState([]);
 
+  // Custom hook to implement debouncing
+  function useDebounce(value, delay) {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+      const handler = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+
+      return () => {
+        clearTimeout(handler);
+      };
+    }, [value, delay]);
+
+    return debouncedValue;
+  }
+
+  const [query, setQuery] = useState("");
+  const [filteredCustomers, setFilteredCustomers] = useState(rewards);
+
+  // Get the debounced query value
+  const debouncedQuery = useDebounce(query, 500);
+
+  useEffect(() => {
+    if (debouncedQuery) {
+      // Filter customers based on the debounced query
+      const results = rewards.filter((customer) =>
+        customer.name.toLowerCase().includes(debouncedQuery.toLowerCase())
+      );
+      setFilteredCustomers(results);
+    } else {
+      setFilteredCustomers(rewards);
+    }
+  }, [debouncedQuery, rewards]);
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
   useEffect(() => {
     if (prop.rewardData?.length > 0) {
       setRewardCustomerData(prop.rewardData);
@@ -49,9 +88,22 @@ export const RewardPoints = (prop) => {
 
   return (
     <div className={"Wrapper"}>
+      <h2>{"Customer Reward Program"}</h2>
+
+      <div className={"Reward"}>
+        <input
+          type="text"
+          value={query}
+          onChange={handleChange}
+          placeholder="Search customers by name"
+        />
+        <Button onClick={calculateMonthlyRewardPoints}>
+          {"Calculate Rewards"}
+        </Button>
+        <Button onClick={() => setRewards([])}>{"Close"}</Button>
+      </div>
       <Table
-        tablename={"Customer Reward Program"}
-        rewards={rewards}
+        rewards={filteredCustomers}
         schema={[
           { index: 0, label: "Customer ID" },
           { index: 1, label: "Name" },
@@ -61,12 +113,6 @@ export const RewardPoints = (prop) => {
           { index: 5, label: "Total Reward Points" },
         ]}
       />
-      <div className={"Reward"}>
-        <Button onClick={calculateMonthlyRewardPoints}>
-          {"Calculate Rewards"}
-        </Button>
-        <Button onClick={() => setRewards([])}>{"Close"}</Button>
-      </div>
     </div>
   );
 };

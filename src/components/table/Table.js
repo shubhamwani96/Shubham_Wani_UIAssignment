@@ -3,7 +3,7 @@ import "../../../src/global.css";
 
 export const Table = (prop) => {
   return (
-    <div className="Wrapper">
+    <>
       <h2>{prop.tablename}</h2>
 
       {(prop.rewards && prop.rewards.length > 0) ||
@@ -39,7 +39,7 @@ export const Table = (prop) => {
                 <tr key={transaction.key}>
                   <td>{transaction.customerId}</td>
                   <td>{transaction.name}</td>
-                  <td>{formatMonth +' '+ year}</td>
+                  <td>{formatMonth + " " + year}</td>
                   <td>{transaction.amount}</td>
                   <td>{transaction.point}</td>
                 </tr>
@@ -50,10 +50,10 @@ export const Table = (prop) => {
       ) : (
         <p>
           {
-            "No data available to display. Please click on the below button to fetch the data."
+            "No data available to display. Please click on the Calculate Rewards button to fetch the data."
           }
         </p>
       )}
-    </div>
+    </>
   );
 };
