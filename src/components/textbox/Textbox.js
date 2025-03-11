@@ -1,7 +1,9 @@
 import React from "react";
 
 /**
- *Reusable Textbox Component
+ *Textbox Component
+ *@param prop type, query, handleChange and placeholder as props
+ *@returns textbox element
  */
 
 export const Textbox = (prop) => {

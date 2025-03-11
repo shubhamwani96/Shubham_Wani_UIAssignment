@@ -1,3 +1,3 @@
 # Table Component
 
-Table Component is used to display all transactions and To calculate Monthly Reward Data.
+Table Component is used as a reusable component to use table throughout the app. It will take tablename, rewards and tran as a props and return table component.

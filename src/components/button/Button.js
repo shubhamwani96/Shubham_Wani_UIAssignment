@@ -1,7 +1,9 @@
 import React from "react";
 
 /**
- *Reusable Button Component
+ *Button Component
+ *@param prop onclick and children as props
+ *@returns button element
  */
 
 export const Button = (prop) => {

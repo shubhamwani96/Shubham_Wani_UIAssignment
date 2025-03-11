@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "../../components/table/Table";
-import { calculateRewardPoints } from "../../utility/CalculateRewardPoints";
+import { TransactionData } from "../../utility/TransactionData";
+
+/**
+ *Transaction Composite to show transaction records
+ *@param prop transactionData Array as a props"
+ *@returns table to show transaction data
+ */
 
 export const Transaction = (prop) => {
   const [transactionData, setTransactionData] = useState([]);
@@ -13,30 +19,11 @@ export const Transaction = (prop) => {
     }
   }, [prop.transactionData]);
 
-  /**
-   *Empty dependency array ensures this effect runs only once after the initial render
-   */
-
-  /**
-   * Function to calculate reward points for each transaction
-   */
-
-  const flattenedData = transactionData.flatMap((customer) =>
-    customer.transactions.map((transaction, index) => ({
-      key: `${customer.customerId}-${index}`,
-      customerId: customer.customerId,
-      name: customer.name,
-      month: transaction.month,
-      amount: transaction.amount,
-      point: calculateRewardPoints(transaction.amount),
-    }))
-  );
-
   return (
     <div className={"Wrapper"}>
       <Table
         tablename={"Transaction Records"}
-        tran={flattenedData}
+        tran={TransactionData(transactionData)}
         schema={[
           { index: 0, label: "Customer ID" },
           { index: 1, label: "Name" },

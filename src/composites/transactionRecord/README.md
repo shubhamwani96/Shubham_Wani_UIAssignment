@@ -1,3 +1,3 @@
 # Transaction Record Composite
 
-Transaction Record works as a composite which gives logic regarding Reward Point Calculations.
+Transaction works as a composite which return table by importing Transaction Data function.

@@ -1,3 +1,3 @@
 # Button Component
 
-Button Component is used to fetch the data from JSON and to call weekly reward point function.
+Button Component is used as a reusable component to use button throughout the app. It will take onclick and children as props and return button element.

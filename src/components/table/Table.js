@@ -1,6 +1,12 @@
 import React from "react";
 import "../../../src/global.css";
 
+/**
+ *Table Component
+ *@param prop tablename, rewards and tran as a props
+ *@returns table component
+ */
+
 export const Table = (prop) => {
   return (
     <>
