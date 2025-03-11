@@ -5,32 +5,15 @@ import "../../../src/composites/rewardPoints/rewardStyles.css";
 import { Button } from "../../components/button/Button";
 import { Textbox } from "../../components/textbox/Textbox";
 import { calculateMonthlyRewardPoints } from "../../utility/CalculateMonthlyRewardPoints";
+import { useDebounce } from "../../utility/Debounce";
 
 export const RewardPoints = (prop) => {
   const [rewards, setRewards] = useState([]);
   const [rewardCustomerData, setRewardCustomerData] = useState([]);
-
-  // Custom hook to implement debouncing
-  function useDebounce(value, delay) {
-    const [debouncedValue, setDebouncedValue] = useState(value);
-
-    useEffect(() => {
-      const handler = setTimeout(() => {
-        setDebouncedValue(value);
-      }, delay);
-
-      return () => {
-        clearTimeout(handler);
-      };
-    }, [value, delay]);
-
-    return debouncedValue;
-  }
-
   const [query, setQuery] = useState("");
   const [filteredCustomers, setFilteredCustomers] = useState(rewards);
 
-  const debouncedQuery = useDebounce(query, 500);  // Get the debounced query value
+  const debouncedQuery = useDebounce(query, 500); // Get the debounced query value
 
   useEffect(() => {
     if (debouncedQuery) {
