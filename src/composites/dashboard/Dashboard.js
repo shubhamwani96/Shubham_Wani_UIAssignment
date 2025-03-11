@@ -13,7 +13,7 @@ export const Dashboard = () => {
   useEffect(() => {
     fetch("http://localhost:3000/CustomerData.json") //Fetch data from the local JSON file
       .then((response) => {
-        if (response.ok) {
+        if (!response.ok) {
           alert("Network response was not ok");
         }
         return response.json();
