@@ -13,8 +13,8 @@ export const Dashboard = () => {
   useEffect(() => {
     fetch("http://localhost:3000/CustomerData.json") //Fetch data from the local JSON file
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+        if (response.ok) {
+          alert("Network response was not ok");
         }
         return response.json();
       })
@@ -26,7 +26,7 @@ export const Dashboard = () => {
         }
       })
       .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
+        alert("There was a problem with the fetch operation:", error);
       });
   }, []); //Empty dependency array ensures this effect runs only once after the initial render
 
