@@ -4,6 +4,7 @@ import "../../../src/global.css";
 import "../../../src/composites/rewardPoints/rewardStyles.css";
 import { Button } from "../../components/button/Button";
 import { calculateRewardPoints } from "../../utility/CalculateRewardPoints";
+import { Textbox } from "../../components/textbox/Textbox";
 
 export const RewardPoints = (prop) => {
   const [rewards, setRewards] = useState([]);
@@ -91,12 +92,13 @@ export const RewardPoints = (prop) => {
       <h2>{"Customer Reward Program"}</h2>
 
       <div className={"Reward"}>
-        <input
-          type="text"
-          value={query}
-          onChange={handleChange}
-          placeholder="Search customers by name"
-        />
+        <Textbox
+          type={"text"}
+          placeholder={"Search customers by name"}
+          handleChange={handleChange}
+          query={query}
+        ></Textbox>
+
         <Button onClick={calculateMonthlyRewardPoints}>
           {"Calculate Rewards"}
         </Button>
