@@ -7,6 +7,12 @@ import { Textbox } from "../../components/textbox/Textbox";
 import { calculateMonthlyRewardPoints } from "../../utility/CalculateMonthlyRewardPoints";
 import { useDebounce } from "../../utility/Debounce";
 
+/**
+ *RewardPoints Composite to show Monthly and Total Reward Points
+ *@param prop rewardData as a props"
+ *@returns table to show Monthly and Total Reward data
+ */
+
 export const RewardPoints = (prop) => {
   const [rewards, setRewards] = useState([]);
   const [rewardCustomerData, setRewardCustomerData] = useState([]);
