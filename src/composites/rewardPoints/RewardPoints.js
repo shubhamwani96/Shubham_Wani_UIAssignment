@@ -3,8 +3,8 @@ import { Table } from "../../components/table/Table";
 import "../../../src/global.css";
 import "../../../src/composites/rewardPoints/rewardStyles.css";
 import { Button } from "../../components/button/Button";
-import { calculateRewardPoints } from "../../utility/CalculateRewardPoints";
 import { Textbox } from "../../components/textbox/Textbox";
+import { calculateMonthlyRewardPoints } from "../../utility/CalculateMonthlyRewardPoints";
 
 export const RewardPoints = (prop) => {
   const [rewards, setRewards] = useState([]);
@@ -30,8 +30,7 @@ export const RewardPoints = (prop) => {
   const [query, setQuery] = useState("");
   const [filteredCustomers, setFilteredCustomers] = useState(rewards);
 
-  // Get the debounced query value
-  const debouncedQuery = useDebounce(query, 500);
+  const debouncedQuery = useDebounce(query, 500);  // Get the debounced query value
 
   useEffect(() => {
     if (debouncedQuery) {
@@ -45,10 +44,6 @@ export const RewardPoints = (prop) => {
     }
   }, [debouncedQuery, rewards]);
 
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-  };
-
   useEffect(() => {
     if (prop.rewardData?.length > 0) {
       setRewardCustomerData(prop.rewardData);
@@ -57,34 +52,12 @@ export const RewardPoints = (prop) => {
     }
   }, [prop.rewardData]);
 
-  /**
-   * Calculate Monthly and Total Reward Points
-   */
-
-  const calculateMonthlyRewardPoints = () => {
-    const rewardSummary = rewardCustomerData.map((customer) => {
-      let monthlyRewards = {};
-      let totalRewards = 0;
-
-      customer.transactions.forEach(({ month, amount }) => {
-        const formatMonth = new Date(month).toLocaleString("default", {
-          month: "long",
-        });
-        const points = calculateRewardPoints(amount);
-        monthlyRewards[formatMonth] =
-          (monthlyRewards[formatMonth] || 0) + points;
-        totalRewards += points;
-      });
-
-      return {
-        customerId: customer.customerId,
-        name: customer.name,
-        monthlyRewards,
-        totalRewards,
-      };
-    });
-
-    setRewards(rewardSummary);
+  const handleCalculateRewards = () => {
+    const summary = calculateMonthlyRewardPoints(rewardCustomerData);
+    setRewards(summary);
+  };
+  const handleChange = (e) => {
+    setQuery(e.target.value);
   };
 
   return (
@@ -99,9 +72,7 @@ export const RewardPoints = (prop) => {
           query={query}
         ></Textbox>
 
-        <Button onClick={calculateMonthlyRewardPoints}>
-          {"Calculate Rewards"}
-        </Button>
+        <Button onClick={handleCalculateRewards}>{"Calculate Rewards"}</Button>
         <Button onClick={() => setRewards([])}>{"Close"}</Button>
       </div>
       <Table
