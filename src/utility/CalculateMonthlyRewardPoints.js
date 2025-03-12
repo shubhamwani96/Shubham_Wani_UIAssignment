@@ -13,7 +13,7 @@ export const calculateMonthlyRewardPoints = (rewardCustomerData) => {
 
     customer.transactions.forEach(({ date, amount }) => {
       const formatMonth = new Date(date).toLocaleString("default", {
-        date: "long",
+        month: "long",
       });
       const points = calculateRewardPoints(amount);
       monthlyRewards[formatMonth] = (monthlyRewards[formatMonth] || 0) + points;
