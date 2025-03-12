@@ -33,7 +33,6 @@ export const RewardPoints = (prop) => {
     }
   }, [debouncedQuery, rewards]);
 
-
   const handleCalculateRewards = () => {
     const summary = calculateMonthlyRewardPoints(prop.rewardData);
     setRewards(summary);

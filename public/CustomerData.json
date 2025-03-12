@@ -3,82 +3,82 @@
     "customerId": 1,
     "name": "Alice",
     "transactions": [
-      { "month": "January 12, 2025", "amount": 120 },
-      { "month": "January 10, 2025", "amount": 75 },
-      { "month": "February 16, 2025", "amount": 200 },
-      { "month": "February 05, 2025", "amount": 50 },
-      { "month": "March 09, 2025", "amount": 95 }
+      { "date": "January 12, 2025", "amount": 120 },
+      { "date": "January 10, 2025", "amount": 75 },
+      { "date": "February 16, 2025", "amount": 200 },
+      { "date": "February 05, 2025", "amount": 50 },
+      { "date": "March 09, 2025", "amount": 95 }
     ]
   },
   {
     "customerId": 2,
     "name": "Bob",
     "transactions": [
-      { "month": "January 21, 2025", "amount": 45 },
-      { "month": "January 23, 2025", "amount": 150 },
-      { "month": "February 14, 2025", "amount": 85 },
-      { "month": "February 19, 2025", "amount": 130 },
-      { "month": "March 10, 2025", "amount": 55 }
+      { "date": "January 21, 2025", "amount": 45 },
+      { "date": "January 23, 2025", "amount": 150 },
+      { "date": "February 14, 2025", "amount": 85 },
+      { "date": "February 19, 2025", "amount": 130 },
+      { "date": "March 10, 2025", "amount": 55 }
     ]
   },
   {
     "customerId": 3,
     "name": "Charlie",
     "transactions": [
-      { "month": "January 11, 2025", "amount": 60 },
-      { "month": "January 12, 2025", "amount": 95 },
-      { "month": "February 03, 2025", "amount": 40 },
-      { "month": "February 05, 2025", "amount": 180 },
-      { "month": "March 06, 2025", "amount": 110 }
+      { "date": "January 11, 2025", "amount": 60 },
+      { "date": "January 12, 2025", "amount": 95 },
+      { "date": "February 03, 2025", "amount": 40 },
+      { "date": "February 05, 2025", "amount": 180 },
+      { "date": "March 06, 2025", "amount": 110 }
     ]
   },
   {
     "customerId": 4,
     "name": "David",
     "transactions": [
-      { "month": "January 26, 2025", "amount": 55 },
-      { "month": "January 25, 2025", "amount": 70 },
-      { "month": "February 08, 2025", "amount": 140 },
-      { "month": "February 09, 2025", "amount": 90 },
-      { "month": "March 08, 2025", "amount": 105 }
+      { "date": "January 26, 2025", "amount": 55 },
+      { "date": "January 25, 2025", "amount": 70 },
+      { "date": "February 08, 2025", "amount": 140 },
+      { "date": "February 09, 2025", "amount": 90 },
+      { "date": "March 08, 2025", "amount": 105 }
     ]
   },
   {
     "customerId": 75,
     "name": "Emma",
     "transactions": [
-      { "month": "January 13, 2025", "amount": 130 },
-      { "month": "January 17, 2025", "amount": 85 },
-      { "month": "February 16, 2025", "amount": 75 },
-      { "month": "February 27, 2025", "amount": 60 },
-      { "month": "March 01, 2025", "amount": 200 }
+      { "date": "January 13, 2025", "amount": 130 },
+      { "date": "January 17, 2025", "amount": 85 },
+      { "date": "February 16, 2025", "amount": 75 },
+      { "date": "February 27, 2025", "amount": 60 },
+      { "date": "March 01, 2025", "amount": 200 }
     ]
   },
   {
     "customerId": 72,
     "name": "Smith",
     "transactions": [
-      { "month": "January 17, 2025", "amount": 30 },
-      { "month": "January 24, 2025", "amount": 895 },
-      { "month": "February 23, 2025", "amount": 75 },
-      { "month": "February 26, 2025", "amount": 60 },
-      { "month": "March 03, 2025", "amount": 210 }
+      { "date": "January 17, 2025", "amount": 30 },
+      { "date": "January 24, 2025", "amount": 895 },
+      { "date": "February 23, 2025", "amount": 75 },
+      { "date": "February 26, 2025", "amount": 60 },
+      { "date": "March 03, 2025", "amount": 210 }
     ]
   },
   {
     "customerId": 91,
     "name": "Thomas",
     "transactions": [
-      { "month": "January 13, 2025", "amount": 350 },
-      { "month": "January 14, 2025", "amount": 12 },
-      { "month": "February 04, 2025", "amount": 34 },
-      { "month": "February 05, 2025", "amount": 70 },
-      { "month": "March 05, 2025", "amount": 81 },
-      { "month": "January 07, 2025", "amount": 450 },
-      { "month": "January 08, 2025", "amount": 120 },
-      { "month": "February 12, 2025", "amount": 344 },
-      { "month": "February 13, 2025", "amount": 780 },
-      { "month": "March 06, 2025", "amount": 761 }
+      { "date": "January 13, 2025", "amount": 350 },
+      { "date": "January 14, 2025", "amount": 12 },
+      { "date": "February 04, 2025", "amount": 34 },
+      { "date": "February 05, 2025", "amount": 70 },
+      { "date": "March 05, 2025", "amount": 81 },
+      { "date": "January 07, 2025", "amount": 450 },
+      { "date": "January 08, 2025", "amount": 120 },
+      { "date": "February 12, 2025", "amount": 344 },
+      { "date": "February 13, 2025", "amount": 780 },
+      { "date": "March 06, 2025", "amount": 761 }
     ]
   }
 ]

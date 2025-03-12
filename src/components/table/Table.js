@@ -37,7 +37,7 @@ export const Table = (prop) => {
                 <tr key={transaction.key}>
                   <td>{transaction.customerId}</td>
                   <td>{transaction.name}</td>
-                  <td>{transaction.month}</td>
+                  <td>{transaction.date}</td>
                   <td>{transaction.amount}</td>
                   <td>{transaction.point}</td>
                 </tr>

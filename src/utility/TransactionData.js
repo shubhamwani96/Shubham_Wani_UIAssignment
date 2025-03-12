@@ -3,7 +3,7 @@ import { calculateRewardPoints } from "./CalculateRewardPoints";
 /**
  *Function to show each and every transaction data
  *@param prop transactionData Array as a props"
- *@returns customerId, name, month, amount, point, key
+ *@returns customerId, name, date, amount, point, key
  */
 
 export const transactionDataFunction = (transactionData) =>
@@ -13,7 +13,7 @@ export const transactionDataFunction = (transactionData) =>
       key: `${customer.customerId}-${index}`,
       customerId: customer.customerId,
       name: customer.name,
-      month: transaction.month,
+      date: transaction.date,
       amount: transaction.amount,
       point: calculateRewardPoints(transaction.amount),
     }))
