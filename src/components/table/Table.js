@@ -32,18 +32,12 @@ export const Table = (prop) => {
               </tr>
             ))}
             {prop.tran?.map((transaction) => {
-              const formatMonth = new Date(transaction.month).toLocaleString(
-                "default",
-                {
-                  month: "long",
-                }
-              );
-              const year = new Date(transaction.month).getFullYear();
+              
               return (
                 <tr key={transaction.key}>
                   <td>{transaction.customerId}</td>
                   <td>{transaction.name}</td>
-                  <td>{formatMonth + " " + year}</td>
+                  <td>{transaction.month}</td>
                   <td>{transaction.amount}</td>
                   <td>{transaction.point}</td>
                 </tr>
