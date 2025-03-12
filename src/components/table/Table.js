@@ -11,7 +11,7 @@ export const Table = (prop) => {
   return (
     <div className={"table"}>
       {(prop.rewards && prop.rewards.length > 0) ||
-      (prop.tran && prop.tran.length > 0) ? (
+      (prop.transaction && prop.transaction.length > 0) ? (
         <table border="1" cellPadding="10" style={{ margin: "auto" }}>
           <thead>
             <tr>
@@ -31,8 +31,7 @@ export const Table = (prop) => {
                 <td>{customer.totalRewards}</td>
               </tr>
             ))}
-            {prop.tran?.map((transaction) => {
-              
+            {prop.transaction?.map((transaction) => {
               return (
                 <tr key={transaction.key}>
                   <td>{transaction.customerId}</td>

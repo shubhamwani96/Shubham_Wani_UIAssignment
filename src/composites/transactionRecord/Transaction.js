@@ -17,7 +17,7 @@ export const Transaction = (prop) => {
         <Loader />
       ) : (
         <Table
-          tran={transactionDataFunction(prop.transactionData)}
+          transaction={transactionDataFunction(prop.transactionData)}
           schema={[
             { index: 0, label: "Customer ID" },
             { index: 1, label: "Name" },
