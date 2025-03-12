@@ -16,7 +16,6 @@ import { Loader } from "../../components/loader/Loader";
 
 export const RewardPoints = (prop) => {
   const [rewards, setRewards] = useState([]);
-  const [rewardCustomerData, setRewardCustomerData] = useState([]);
   const [query, setQuery] = useState("");
   const [filteredCustomers, setFilteredCustomers] = useState(rewards);
 
@@ -34,16 +33,9 @@ export const RewardPoints = (prop) => {
     }
   }, [debouncedQuery, rewards]);
 
-  useEffect(() => {
-    if (prop.rewardData?.length > 0) {
-      setRewardCustomerData(prop.rewardData);
-    } else {
-      setRewardCustomerData([]);
-    }
-  }, [prop.rewardData]);
 
   const handleCalculateRewards = () => {
-    const summary = calculateMonthlyRewardPoints(rewardCustomerData);
+    const summary = calculateMonthlyRewardPoints(prop.rewardData);
     setRewards(summary);
   };
   const handleChange = (e) => {

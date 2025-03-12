@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Table } from "../../components/table/Table";
 import { TransactionData } from "../../utility/TransactionData";
 import { Loader } from "../../components/loader/Loader";
@@ -10,16 +10,6 @@ import { Loader } from "../../components/loader/Loader";
  */
 
 export const Transaction = (prop) => {
-  const [transactionData, setTransactionData] = useState([]);
-
-  useEffect(() => {
-    if (prop.transactionData?.length > 0) {
-      setTransactionData(prop.transactionData);
-    } else {
-      setTransactionData([]);
-    }
-  }, [prop.transactionData]);
-
   return (
     <div className={"Wrapper"}>
       <h2>{"Transaction Records"}</h2>
@@ -27,7 +17,7 @@ export const Transaction = (prop) => {
         <Loader />
       ) : (
         <Table
-          tran={TransactionData(transactionData)}
+          tran={TransactionData(prop.transactionData)}
           schema={[
             { index: 0, label: "Customer ID" },
             { index: 1, label: "Name" },

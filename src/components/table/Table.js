@@ -9,7 +9,7 @@ import "../../../src/global.css";
 
 export const Table = (prop) => {
   return (
-    <>
+    <div className={"table"}>
       {(prop.rewards && prop.rewards.length > 0) ||
       (prop.tran && prop.tran.length > 0) ? (
         <table border="1" cellPadding="10" style={{ margin: "auto" }}>
@@ -58,6 +58,6 @@ export const Table = (prop) => {
           }
         </p>
       )}
-    </>
+    </div>
   );
 };
