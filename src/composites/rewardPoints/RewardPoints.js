@@ -7,6 +7,7 @@ import { Textbox } from "../../components/textbox/Textbox";
 import { calculateMonthlyRewardPoints } from "../../utility/CalculateMonthlyRewardPoints";
 import { useDebounce } from "../../utility/Debounce";
 import { Loader } from "../../components/loader/Loader";
+import { extractUniqueMonthYear } from "../../utility/ExtractMonthYear";
 
 /**
  *RewardPoints Composite to show Monthly and Total Reward Points
@@ -33,7 +34,6 @@ export const RewardPoints = (prop) => {
       setFilteredCustomers(rewards);
     }
   }, [debouncedQuery, rewards]);
-
   const handleCalculateRewards = () => {
     const summary = calculateMonthlyRewardPoints(prop.rewardData);
     setRewards(summary);
@@ -41,6 +41,7 @@ export const RewardPoints = (prop) => {
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
+  const uniqueMonthYears = extractUniqueMonthYear(filteredCustomers);
 
   return (
     <div className={"Wrapper"}>
@@ -66,11 +67,12 @@ export const RewardPoints = (prop) => {
           schema={[
             { index: 0, label: "Customer ID" },
             { index: 1, label: "Name" },
-            { index: 2, label: "January 2025" },
-            { index: 3, label: "February 2025" },
-            { index: 4, label: "March 2025" },
+            { index: 2, label: uniqueMonthYears[0] },
+            { index: 3, label: uniqueMonthYears[1] },
+            { index: 4, label: uniqueMonthYears[2] },
             { index: 5, label: "Total Reward Points" },
           ]}
+          uniqueMonthYears={uniqueMonthYears}
         />
       )}
     </div>

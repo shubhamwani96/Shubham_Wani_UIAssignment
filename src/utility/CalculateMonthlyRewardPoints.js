@@ -15,8 +15,10 @@ export const calculateMonthlyRewardPoints = (rewardCustomerData) => {
       const formatMonth = new Date(date).toLocaleString("default", {
         month: "long",
       });
+      const year = new Date(date).getFullYear();
       const points = calculateRewardPoints(amount);
-      monthlyRewards[formatMonth] = (monthlyRewards[formatMonth] || 0) + points;
+      monthlyRewards[formatMonth + " " + year] =
+        (monthlyRewards[formatMonth + " " + year] || 0) + points;
       totalRewards += points;
     });
 

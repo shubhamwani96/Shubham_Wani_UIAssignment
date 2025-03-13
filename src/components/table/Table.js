@@ -27,9 +27,15 @@ export const Table = (prop) => {
               <tr key={customer.customerId}>
                 <td>{customer.customerId}</td>
                 <td>{customer.name}</td>
-                <td>{customer.monthlyRewards["January"] || 0}</td>
-                <td>{customer.monthlyRewards["February"] || 0}</td>
-                <td>{customer.monthlyRewards["March"] || 0}</td>
+                <td>
+                  {customer.monthlyRewards[prop.uniqueMonthYears[0]] || 0}
+                </td>
+                <td>
+                  {customer.monthlyRewards[prop.uniqueMonthYears[1]] || 0}
+                </td>
+                <td>
+                  {customer.monthlyRewards[prop.uniqueMonthYears[2]] || 0}
+                </td>
                 <td>{customer.totalRewards}</td>
               </tr>
             ))}
