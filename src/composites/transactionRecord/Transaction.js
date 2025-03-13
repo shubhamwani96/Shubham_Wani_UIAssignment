@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from "../../components/table/Table";
-import { transactionDataFunction } from "../../utility/TransactionData";
+import { transformTransactionData } from "../../utility/TransactionData";
 import { Loader } from "../../components/loader/Loader";
 
 /**
@@ -18,7 +18,7 @@ export const Transaction = (prop) => {
         <Loader />
       ) : (
         <Table
-          transaction={transactionDataFunction(prop.transactionData)}
+          transactions={transformTransactionData(prop.transactionData)}
           schema={[
             { index: 0, label: "Customer ID" },
             { index: 1, label: "Name" },

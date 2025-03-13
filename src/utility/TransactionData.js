@@ -6,7 +6,7 @@ import { calculateRewardPoints } from "./CalculateRewardPoints";
  *@returns customerId, name, date, amount, point, key
  */
 
-export const transactionDataFunction = (transactionData) =>
+export const transformTransactionData = (transactionData) =>
   // Its combination of flat() and map() method. The flat() method concatenates sub-array elements.
   transactionData.flatMap((customer) =>
     customer.transactions.map((transaction, index) => ({
