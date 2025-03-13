@@ -51,7 +51,8 @@ test("updates input value on change", async () => {
   render(<RewardPoints />);
   const searchInput = screen.getByPlaceholderText("Search customers by name");
   fireEvent.change(searchInput, { target: { value: "test" } });
-  userEvent.type(searchInput, { target: { value: "test" } });
+  searchInput.setSelectionRange(0, searchInput.value.length); // Select all text
+  userEvent.type(searchInput, "test"); // will replace the existing content with the new input.
   await waitFor(() => expect(searchInput.value).toBe("test"));
 });
 
