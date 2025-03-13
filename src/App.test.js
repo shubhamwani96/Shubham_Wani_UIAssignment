@@ -1,10 +1,12 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent,waitFor  } from "@testing-library/react";
 import App from "./App";
 import { Button } from "./components/button/Button";
+import { RewardPoints } from "./composites/rewardPoints/RewardPoints";
+import userEvent from "@testing-library/user-event";
 
 test("Header renders with react testing from the appliction", () => {
   render(<App />);
-  const linkElement = screen.getByText(/Customer Reward Program/i);
+  const linkElement = screen.getByText("Customer Reward Program");
   expect(linkElement).toBeInTheDocument();
 });
 
@@ -43,3 +45,12 @@ test("Calculate Rewards button click triggers function", () => {
   fireEvent.click(buttonElement);
   expect(handleClick).toHaveBeenCalledTimes(1);
 });
+
+test("updates input value on change", async() => {
+  render(<RewardPoints />);
+  const searchInput = screen.getByPlaceholderText("Search customers by name");
+  fireEvent.change(searchInput, { target: { value: "test" } });
+  userEvent.type(searchInput, { target: { value: "test" } });
+  await waitFor(() => expect(searchInput.value).toBe("test"));
+});
+
