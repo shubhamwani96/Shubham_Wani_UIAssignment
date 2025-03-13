@@ -2,7 +2,8 @@ import React from "react";
 
 /**
  *Button Component
- *@param prop onclick and children as props
+ *@param onclick function to be called on button click
+ *@param children text of the button or children of the button
  *@returns button element
  */
 

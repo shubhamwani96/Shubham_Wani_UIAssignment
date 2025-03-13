@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 
 /**
  *Debouncing function for name search
- *@param prop value, delay as a props"
- *@returns The hook returns the debouncedValue, which will only update after the user stops changing the value.
+ *@param value current state or input value that is being processed by the debounced function
+ *@param delay specifies the amount of time (in milliseconds) to wait after the last event before executing the debounced function
+ *@returns The hook returns the debouncedValue, which will only update after the user stops changing the value
  */
 
 export const useDebounce = (value, delay) => {

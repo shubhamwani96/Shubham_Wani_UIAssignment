@@ -1,10 +1,10 @@
+import { calculateRewardPoints } from "./CalculateRewardPoints";
+
 /**
  *Calculate Monthly and Total Reward Points
- *@param prop rewardCustomerData as a props"
+ *@param rewardCustomerData Array of customer reward data
  *@returns monthlyRewards, totalRewards, name, customerId
  */
-
-import { calculateRewardPoints } from "./CalculateRewardPoints";
 
 export const calculateMonthlyRewardPoints = (rewardCustomerData) => {
   const rewardSummary = rewardCustomerData.map((customer) => {

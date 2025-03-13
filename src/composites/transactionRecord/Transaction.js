@@ -5,7 +5,8 @@ import { Loader } from "../../components/loader/Loader";
 
 /**
  *Transaction Composite to show transaction records
- *@param prop transactionData Array as a props"
+ *@param transactionData Array of transaction data
+ *@param Loading boolean to check if data is loading
  *@returns table to show transaction data
  */
 
@@ -23,7 +24,7 @@ export const Transaction = (prop) => {
             { index: 1, label: "Name" },
             { index: 2, label: "Month" },
             { index: 3, label: "Amount" },
-            { index: 3, label: "Reward Points" },
+            { index: 4, label: "Reward Points" },
           ]}
         />
       )}

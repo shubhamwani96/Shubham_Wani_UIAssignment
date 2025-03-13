@@ -10,7 +10,8 @@ import { Loader } from "../../components/loader/Loader";
 
 /**
  *RewardPoints Composite to show Monthly and Total Reward Points
- *@param prop rewardData as a props"
+ *@param rewardData Array of customer reward data
+ *@param Loading boolean to check if data is loading
  *@returns table to show Monthly and Total Reward Data data
  */
 
@@ -50,7 +51,7 @@ export const RewardPoints = (prop) => {
           type={"text"}
           placeholder={"Search customers by name"}
           handleChange={handleChange}
-          query={query}
+          value={query}
         ></Textbox>
 
         <Button onClick={handleCalculateRewards}>{"Calculate Rewards"}</Button>

@@ -3,7 +3,9 @@ import "../../../src/global.css";
 
 /**
  *Table Component
- *@param prop tablename, rewards and tran as a props
+ *@param rewards Array of rewards
+ *@param schema Array of headers
+ *@param transaction Array of transaction
  *@returns table component
  */
 

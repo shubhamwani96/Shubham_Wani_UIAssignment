@@ -1,6 +1,6 @@
 /**
  *Function to calculate reward points for each transaction
- *@param prop amount as a props"
+ *@param amount as a input to calculate reward points
  *@returns reward points for each transaction
  */
 
