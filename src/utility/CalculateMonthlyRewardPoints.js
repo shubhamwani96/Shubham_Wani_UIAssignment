@@ -2,7 +2,7 @@ import { calculateRewardPoints } from "./CalculateRewardPoints";
 
 /**
  *Calculate Monthly and Total Reward Points
- *@param rewardCustomerData Array of customer reward data
+ *@argument rewardCustomerData Array of customer reward data
  *@returns monthlyRewards, totalRewards, name, customerId
  */
 

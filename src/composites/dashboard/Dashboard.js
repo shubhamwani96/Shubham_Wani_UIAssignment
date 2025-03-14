@@ -4,7 +4,7 @@ import { Transaction } from "../transactionRecord/Transaction.js";
 
 /**
  *Dashboard Composite
- *Dashboard works as a composite which combines two composites "RewardsPoints" and "Transaction"
+ *Dashboard works as a composite which combines two composites "RewardPoints" and "Transaction"
  *@returns Dashboard Page
  */
 

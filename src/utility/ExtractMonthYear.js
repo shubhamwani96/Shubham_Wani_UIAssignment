@@ -1,6 +1,6 @@
 /**
  *Function to calculate unique month and year from the data
- *@param data as a input to calculate unique month and year
+ *@argument data as a input to calculate unique month and year
  *@returns returns unique month and year
  */
 

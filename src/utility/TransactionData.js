@@ -2,7 +2,7 @@ import { calculateRewardPoints } from "./CalculateRewardPoints";
 
 /**
  *Function to show each and every transaction data
- *@param transactionData array of customer transaction data
+ *@argument transactionData array of customer transaction data
  *@returns customerId, name, date, amount, point, key
  */
 

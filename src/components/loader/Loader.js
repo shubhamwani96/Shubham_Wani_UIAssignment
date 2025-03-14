@@ -5,4 +5,4 @@ import React from "react";
  *@returns Loader
  */
 
-export const Loader = () => <div>Loading...</div>;
+export const Loader = () => <div>{"Loading..."}</div>;

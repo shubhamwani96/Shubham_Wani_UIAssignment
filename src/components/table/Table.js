@@ -5,7 +5,7 @@ import "../../../src/global.css";
  *Table Component
  *@param rewards Array of rewards
  *@param schema Array of headers
- *@param transaction Array of transaction
+ *@param transactions Array of transaction
  *@returns table component
  */
 
