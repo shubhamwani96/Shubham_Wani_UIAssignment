@@ -1,3 +1,3 @@
-# Transaction Record Composite
+# Transaction Composite
 
 Transaction works as a composite which return table by importing Transaction Data function.

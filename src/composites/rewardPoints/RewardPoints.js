@@ -64,7 +64,7 @@ export const RewardPoints = (prop) => {
       ) : (
         <Table
           rewards={filteredCustomers}
-          schema={[
+          headers={[
             { index: 0, label: "Customer ID" },
             { index: 1, label: "Name" },
             { index: 2, label: uniqueMonthYears[0] },

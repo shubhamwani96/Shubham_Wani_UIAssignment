@@ -4,7 +4,7 @@ import "../../../src/global.css";
 /**
  *Table Component
  *@param rewards Array of rewards
- *@param schema Array of headers
+ *@param headers Array of headers
  *@param transactions Array of transaction
  *@returns table component
  */
@@ -17,7 +17,7 @@ export const Table = (prop) => {
         <table border="1" cellPadding="10" style={{ margin: "auto" }}>
           <thead>
             <tr>
-              {prop.schema?.map((column, index) => (
+              {prop.headers?.map((column, index) => (
                 <th key={index}>{column.label}</th>
               ))}
             </tr>

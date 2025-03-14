@@ -1,4 +1,4 @@
-# RewardsPoints Composite
+# RewardPoints Composite
 
-RewardsPoints works as a composite which return table by importing calculateMonthlyRewardPoints Data function.
+RewardPoints works as a composite which return table by importing calculateMonthlyRewardPoints Data function.
 
