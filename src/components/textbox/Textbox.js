@@ -13,7 +13,7 @@ export const Textbox = (prop) => {
   return (
     <input
       type={prop.type}
-      value={prop.query}
+      value={prop.value}
       onChange={prop.handleChange}
       placeholder={prop.placeholder}
     />

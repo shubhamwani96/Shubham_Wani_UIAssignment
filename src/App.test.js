@@ -5,26 +5,26 @@ import { RewardPoints } from "./composites/rewardPoints/RewardPoints";
 
 import userEvent from "@testing-library/user-event";
 
-test("Header renders with react testing from the appliction", () => {
+test("Renders with the text Customer Reward Program from the application", () => {
   render(<App />);
   const linkElement = screen.getByText("Customer Reward Program");
   expect(linkElement).toBeInTheDocument();
 });
 
-test("Render Reward Points component in the application", () => {
+test("Renders with the text Transaction Records from the application", () => {
   render(<App />);
   const childElement = screen.getByText("Transaction Records");
   expect(childElement).toBeInTheDocument();
 });
 
-test("renders Calculate Rewards button with correct text", () => {
+test("Renders Calculate Rewards Button with correct text", () => {
   render(<Button>Calculate Rewards</Button>);
   const buttonElement = screen.getByRole("button");
   expect(buttonElement).toBeInTheDocument();
   expect(buttonElement).toHaveTextContent("Calculate Rewards");
 });
 
-test("renders Close button with correct text", () => {
+test("Renders Close Button with correct text", () => {
   render(<Button>Close</Button>);
   const buttonElement = screen.getByRole("button");
   expect(buttonElement).toBeInTheDocument();
@@ -85,15 +85,15 @@ test("filters customer data based on search input", async () => {
   render(<RewardPoints rewardData={mockRewardData} Loading={false} />);
 
   const searchInput = screen.getByPlaceholderText("Search customers by name");
-  const rewardButon = screen.getByText("Calculate Rewards");
+  const rewardButton = screen.getByText("Calculate Rewards");
 
   // Simulate clicking the 'Calculate Rewards' button
-  fireEvent.click(rewardButon);
+  fireEvent.click(rewardButton);
 
   // Wait for the component to re-render with filtered data
   await waitFor(() => {
     const rows = screen.getAllByRole("row");
-    // Assert that only two row is displayed (the header row plus the 'Alice' row)
+    // Assert that the number of rows matches the expected count
     expect(rows).toHaveLength(3);
   });
   // Simulate typing 'Alice' into the search input
