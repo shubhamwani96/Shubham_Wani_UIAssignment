@@ -43,7 +43,7 @@ export const RewardPoints = (prop) => {
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
-  
+
   const uniqueMonthYears = extractUniqueMonthYear(filteredCustomers);
 
   return (
@@ -70,12 +70,9 @@ export const RewardPoints = (prop) => {
           headers={[
             { index: 0, label: "Customer ID" },
             { index: 1, label: "Name" },
-            { index: 2, label: uniqueMonthYears[0] },
-            { index: 3, label: uniqueMonthYears[1] },
-            { index: 4, label: uniqueMonthYears[2] },
             { index: 5, label: "Total Reward Points" },
           ]}
-          uniqueMonthYears={uniqueMonthYears}
+          months={uniqueMonthYears}
         />
       )}
     </div>

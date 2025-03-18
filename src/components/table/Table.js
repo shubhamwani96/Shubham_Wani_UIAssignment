@@ -20,6 +20,10 @@ export const Table = (prop) => {
               {prop.headers?.map((column, index) => (
                 <th key={index}>{column.label}</th>
               ))}
+
+              {prop.months?.map((month, index) => (
+                <th key={index}>{month}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
@@ -27,15 +31,11 @@ export const Table = (prop) => {
               <tr key={customer.customerId}>
                 <td>{customer.customerId}</td>
                 <td>{customer.name}</td>
-                <td>
-                  {customer.monthlyRewards[prop.uniqueMonthYears[0]] || 0}
-                </td>
-                <td>
-                  {customer.monthlyRewards[prop.uniqueMonthYears[1]] || 0}
-                </td>
-                <td>
-                  {customer.monthlyRewards[prop.uniqueMonthYears[2]] || 0}
-                </td>
+                {prop.months?.map((month) => (
+                  <td key={month}>
+                    {customer.monthlyRewards[month] || 0}
+                  </td>
+                ))}
                 <td>{customer.totalRewards}</td>
               </tr>
             ))}
