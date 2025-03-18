@@ -11,6 +11,7 @@ import { Loader } from "../../components/loader/Loader";
  */
 
 export const Transaction = (prop) => {
+  
   return (
     <div className={"Wrapper"}>
       <h2>{"Transaction Records"}</h2>

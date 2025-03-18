@@ -45,7 +45,7 @@ export const Table = (prop) => {
                   <td>{transaction.customerId}</td>
                   <td>{transaction.name}</td>
                   <td>{transaction.date}</td>
-                  <td>{transaction.amount}</td>
+                  <td>{transaction.amount.toFixed(2)}</td>
                   <td>{transaction.point}</td>
                 </tr>
               );

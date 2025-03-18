@@ -5,9 +5,9 @@
  */
 
 export const calculateRewardPoints = (amount) => {
-  const purchaseAmount = Math.floor(parseFloat(amount).toFixed(2)); // Ensures the amount is rounded to two decimal places;
-
+  const purchaseAmount = Math.floor(parseFloat(amount)); // Ensures the amount is rounded to two decimal places;
   let points = 0;
+  
   if (purchaseAmount > 100) {
     points += (purchaseAmount - 100) * 2; // 2 points for each dollar over $100
     points += 50; // 50 points for the $50 between $50 and $100
@@ -15,5 +15,5 @@ export const calculateRewardPoints = (amount) => {
     points += purchaseAmount - 50; // 1 point for each dollar over $50
   }
 
-  return Math.floor(points);
+  return points;
 };

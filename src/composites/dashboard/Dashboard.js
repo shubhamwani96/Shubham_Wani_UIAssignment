@@ -11,6 +11,7 @@ import { Transaction } from "../transactionRecord/Transaction.js";
 export const Dashboard = () => {
   const [customerData, setCustomerData] = useState([]);
   const [loading, setLoading] = useState(false);
+  
   useEffect(() => {
     setLoading(true);
 

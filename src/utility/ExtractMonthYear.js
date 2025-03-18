@@ -6,11 +6,13 @@
 
  export const extractUniqueMonthYear = (data) => {
     const months = new Set();
+
     data.forEach((customer) => {
       Object.keys(customer.monthlyRewards).forEach((monthYear) => {
         months.add(monthYear);
       });
     });
+    
     return Array.from(months);
   };
   

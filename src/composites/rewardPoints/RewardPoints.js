@@ -34,13 +34,16 @@ export const RewardPoints = (prop) => {
       setFilteredCustomers(rewards);
     }
   }, [debouncedQuery, rewards]);
+
   const handleCalculateRewards = () => {
     const summary = calculateMonthlyRewardPoints(prop.rewardData);
     setRewards(summary);
   };
+
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
+  
   const uniqueMonthYears = extractUniqueMonthYear(filteredCustomers);
 
   return (
