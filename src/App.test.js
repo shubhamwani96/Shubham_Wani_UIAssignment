@@ -2,7 +2,6 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import App from "./App";
 import { Button } from "./components/button/Button";
 import { RewardPoints } from "./composites/rewardPoints/RewardPoints";
-
 import userEvent from "@testing-library/user-event";
 
 test("Renders with the text Customer Reward Program from the application", () => {
