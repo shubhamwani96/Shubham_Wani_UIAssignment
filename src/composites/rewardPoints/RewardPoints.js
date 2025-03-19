@@ -70,7 +70,7 @@ export const RewardPoints = (prop) => {
           headers={[
             { index: 0, label: "Customer ID" },
             { index: 1, label: "Name" },
-            { index: 5, label: "Total Reward Points" },
+            { index: 2, label: "Total Reward Points" },
           ]}
           months={uniqueMonthYears}
         />

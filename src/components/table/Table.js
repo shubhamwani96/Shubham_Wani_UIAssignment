@@ -18,7 +18,7 @@ export const Table = (prop) => {
           <thead>
             <tr>
               {prop.headers?.map((column, index) => (
-                <th key={index}>{column.label}</th>
+                <th key={column.index}>{column.label}</th>
               ))}
 
               {prop.months?.map((month, index) => (
@@ -31,12 +31,10 @@ export const Table = (prop) => {
               <tr key={customer.customerId}>
                 <td>{customer.customerId}</td>
                 <td>{customer.name}</td>
-                {prop.months?.map((month) => (
-                  <td key={month}>
-                    {customer.monthlyRewards[month] || 0}
-                  </td>
-                ))}
                 <td>{customer.totalRewards}</td>
+                {prop.months?.map((month) => (
+                  <td key={month}>{customer.monthlyRewards[month] || 0}</td>
+                ))}
               </tr>
             ))}
             {prop.transactions?.map((transaction) => {

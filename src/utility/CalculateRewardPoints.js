@@ -5,7 +5,7 @@
  */
 
 export const calculateRewardPoints = (amount) => {
-  const purchaseAmount = Math.floor(parseFloat(amount)); // Ensures the amount is rounded to two decimal places;
+  const purchaseAmount = Math.floor(parseFloat(amount));
   let points = 0;
   
   if (purchaseAmount > 100) {
