@@ -21,12 +21,6 @@ export const RewardPoints = (prop) => {
   const [query, setQuery] = useState("");
   const [filteredCustomers, setFilteredCustomers] = useState(rewards);
 
-  const headers = [
-    { columnIndex: 0, label: "Customer ID" },
-    { columnIndex: 1, label: "Name" },
-    { columnIndex: 2, label: "Total Reward Points" },
-  ];
-
   const debouncedQuery = useDebounce(query, 500); // Get the debounced query value
 
   useEffect(() => {
@@ -65,9 +59,15 @@ export const RewardPoints = (prop) => {
 
   const uniqueMonthYears = extractUniqueMonthYear(filteredCustomers);
 
+  const headers = [
+    { columnIndex: 0, label: "Customer ID" },
+    { columnIndex: 1, label: "Name" },
+    { columnIndex: 2, label: "Total Reward Points" },
+  ];
+
   uniqueMonthYears.forEach((month) => {
     headers.push({
-      columnIndex: headers.length - 1 + 1,
+      columnIndex: headers.length,
       label: month,
     });
   });
