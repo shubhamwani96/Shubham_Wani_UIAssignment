@@ -3,7 +3,7 @@
     "customerId": 1,
     "name": "Alice",
     "transactions": [
-      { "date": "January 12, 2025", "amount": 120.90 },
+      { "date": "January 12, 2025", "amount": 120.95 },
       { "date": "January 10, 2025", "amount": 75.00 },
       { "date": "February 16, 2025", "amount": 200.00 },
       { "date": "February 05, 2025", "amount": 50.00 },
@@ -18,7 +18,7 @@
       { "date": "January 23, 2025", "amount": 150.90 },
       { "date": "February 14, 2025", "amount": 85.00 },
       { "date": "February 19, 2025", "amount": 130.00 },
-      { "date": "March 10, 2025", "amount": 55.00 }
+      { "date": "March 10, 2025", "amount": 55.75 }
     ]
   },
   {
@@ -26,7 +26,7 @@
     "name": "Charlie",
     "transactions": [
       { "date": "January 11, 2025", "amount": 60.00 },
-      { "date": "January 12, 2025", "amount": 95.00 },
+      { "date": "January 12, 2025", "amount": 95.32 },
       { "date": "February 03, 2025", "amount": 40.00 },
       { "date": "February 05, 2025", "amount": 180.00 },
       { "date": "March 06, 2025", "amount": 110.00 }
@@ -39,7 +39,7 @@
       { "date": "January 26, 2025", "amount": 55.00 },
       { "date": "January 25, 2025", "amount": 70.00 },
       { "date": "February 08, 2025", "amount": 140.00 },
-      { "date": "February 09, 2025", "amount": 90.00 },
+      { "date": "February 09, 2025", "amount": 90.49 },
       { "date": "March 08, 2025", "amount": 105.00 }
     ]
   },
@@ -72,7 +72,7 @@
       { "date": "January 13, 2025", "amount": 350.00 },
       { "date": "January 14, 2025", "amount": 12.00 },
       { "date": "February 04, 2025", "amount": 34.00 },
-      { "date": "February 05, 2025", "amount": 70.00 },
+      { "date": "February 05, 2025", "amount": 70.58 },
       { "date": "March 05, 2025", "amount": 81.00 },
       { "date": "January 07, 2025", "amount": 450.00 },
       { "date": "January 08, 2025", "amount": 120.90 },

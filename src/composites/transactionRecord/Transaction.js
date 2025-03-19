@@ -11,25 +11,38 @@ import { Loader } from "../../components/loader/Loader";
  */
 
 export const Transaction = (prop) => {
-  
+  const renderTransactionRows = (transactions) => {
+    return transactions?.map((transaction) => (
+      <tr key={transaction.key}>
+        <td>{transaction.customerId}</td>
+        <td>{transaction.name}</td>
+        <td>{transaction.date}</td>
+        <td>{transaction.amount.toFixed(2)}</td>
+        <td>{transaction.point}</td>
+      </tr>
+    ));
+  };
+
   return (
     <div className={"Wrapper"}>
       <h2>{"Transaction Records"}</h2>
+
       {prop.Loading ? (
         <Loader />
       ) : (
         <Table
-          transactions={transformTransactionData(prop.transactionData)}
           headers={[
-            { index: 0, label: "Customer ID" },
-            { index: 1, label: "Name" },
-            { index: 2, label: "Month" },
-            { index: 3, label: "Amount" },
-            { index: 4, label: "Reward Points" },
+            { columnIndex: 0, label: "Customer ID" },
+            { columnIndex: 1, label: "Name" },
+            { columnIndex: 2, label: "Month" },
+            { columnIndex: 3, label: "Amount" },
+            { columnIndex: 4, label: "Reward Points" },
           ]}
+          renderRows={renderTransactionRows(
+            transformTransactionData(prop.transactionData)
+          )}
         />
       )}
-      ;
     </div>
   );
 };

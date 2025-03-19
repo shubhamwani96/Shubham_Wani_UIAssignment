@@ -21,6 +21,12 @@ export const RewardPoints = (prop) => {
   const [query, setQuery] = useState("");
   const [filteredCustomers, setFilteredCustomers] = useState(rewards);
 
+  const headers = [
+    { columnIndex: 0, label: "Customer ID" },
+    { columnIndex: 1, label: "Name" },
+    { columnIndex: 2, label: "Total Reward Points" },
+  ];
+
   const debouncedQuery = useDebounce(query, 500); // Get the debounced query value
 
   useEffect(() => {
@@ -44,7 +50,27 @@ export const RewardPoints = (prop) => {
     setQuery(e.target.value);
   };
 
+  const renderRewardRows = (customers, months) => {
+    return customers?.map((customer) => (
+      <tr key={customer.customerId}>
+        <td>{customer.customerId}</td>
+        <td>{customer.name}</td>
+        <td>{customer.totalRewards}</td>
+        {months?.map((month) => (
+          <td key={month}>{customer.monthlyRewards[month] || 0}</td>
+        ))}
+      </tr>
+    ));
+  };
+
   const uniqueMonthYears = extractUniqueMonthYear(filteredCustomers);
+
+  uniqueMonthYears.forEach((month) => {
+    headers.push({
+      columnIndex: headers.length - 1 + 1,
+      label: month,
+    });
+  });
 
   return (
     <div className={"Wrapper"}>
@@ -66,13 +92,8 @@ export const RewardPoints = (prop) => {
         <Loader />
       ) : (
         <Table
-          rewards={filteredCustomers}
-          headers={[
-            { index: 0, label: "Customer ID" },
-            { index: 1, label: "Name" },
-            { index: 2, label: "Total Reward Points" },
-          ]}
-          months={uniqueMonthYears}
+          headers={headers}
+          renderRows={renderRewardRows(filteredCustomers, uniqueMonthYears)}
         />
       )}
     </div>

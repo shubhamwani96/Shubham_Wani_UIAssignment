@@ -3,52 +3,25 @@ import "../../../src/global.css";
 
 /**
  *Table Component
- *@param rewards Array of rewards
  *@param headers Array of headers
- *@param transactions Array of transaction
+ *@param renderRows Array of transaction data
  *@returns table component
  */
 
 export const Table = (prop) => {
+  
   return (
     <div className={"table"}>
-      {(prop.rewards && prop.rewards.length > 0) ||
-      (prop.transactions && prop.transactions.length > 0) ? (
+      {prop.renderRows && prop.renderRows.length > 0 ? (
         <table border="1" cellPadding="10" style={{ margin: "auto" }}>
           <thead>
             <tr>
-              {prop.headers?.map((column, index) => (
-                <th key={column.index}>{column.label}</th>
-              ))}
-
-              {prop.months?.map((month, index) => (
-                <th key={index}>{month}</th>
+              {prop.headers?.map((column) => (
+                <th key={column.columnIndex}>{column.label}</th>
               ))}
             </tr>
           </thead>
-          <tbody>
-            {prop.rewards?.map((customer) => (
-              <tr key={customer.customerId}>
-                <td>{customer.customerId}</td>
-                <td>{customer.name}</td>
-                <td>{customer.totalRewards}</td>
-                {prop.months?.map((month) => (
-                  <td key={month}>{customer.monthlyRewards[month] || 0}</td>
-                ))}
-              </tr>
-            ))}
-            {prop.transactions?.map((transaction) => {
-              return (
-                <tr key={transaction.key}>
-                  <td>{transaction.customerId}</td>
-                  <td>{transaction.name}</td>
-                  <td>{transaction.date}</td>
-                  <td>{transaction.amount.toFixed(2)}</td>
-                  <td>{transaction.point}</td>
-                </tr>
-              );
-            })}
-          </tbody>
+          <tbody>{prop.renderRows}</tbody>
         </table>
       ) : (
         <p>
