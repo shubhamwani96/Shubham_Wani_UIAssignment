@@ -7,7 +7,7 @@
 export const calculateRewardPoints = (amount) => {
   const purchaseAmount = Math.floor(parseFloat(amount));
   let points = 0;
-  
+
   if (purchaseAmount > 100) {
     points += (purchaseAmount - 100) * 2; // 2 points for each dollar over $100
     points += 50; // 50 points for the $50 between $50 and $100

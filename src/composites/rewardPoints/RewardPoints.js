@@ -36,7 +36,7 @@ export const RewardPoints = (prop) => {
   }, [debouncedQuery, rewards]);
 
   const handleCalculateRewards = () => {
-    const summary = calculateMonthlyRewardPoints(prop.rewardData);
+    const summary = calculateMonthlyRewardPoints(prop.rewardData); //Calculate Monthly Reward Points
     setRewards(summary);
   };
 
@@ -44,6 +44,7 @@ export const RewardPoints = (prop) => {
     setQuery(e.target.value);
   };
 
+  // to render table rows for customer reward data
   const renderRewardRows = (customers, months) => {
     return customers?.map((customer) => (
       <tr key={customer.customerId}>
@@ -59,12 +60,14 @@ export const RewardPoints = (prop) => {
 
   const uniqueMonthYears = extractUniqueMonthYear(filteredCustomers);
 
+  //Table headers
   const headers = [
     { columnIndex: 0, label: "Customer ID" },
     { columnIndex: 1, label: "Name" },
     { columnIndex: 2, label: "Total Reward Points" },
   ];
 
+  //Added Months in to headers
   uniqueMonthYears.forEach((month) => {
     headers.push({
       columnIndex: headers.length,

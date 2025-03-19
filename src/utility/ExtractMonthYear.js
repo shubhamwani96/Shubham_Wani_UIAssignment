@@ -4,15 +4,14 @@
  *@returns returns unique month and year
  */
 
- export const extractUniqueMonthYear = (data) => {
-    const months = new Set();
+export const extractUniqueMonthYear = (data) => {
+  const months = new Set();
 
-    data.forEach((customer) => {
-      Object.keys(customer.monthlyRewards).forEach((monthYear) => {
-        months.add(monthYear);
-      });
+  data.forEach((customer) => {
+    Object.keys(customer.monthlyRewards).forEach((monthYear) => {
+      months.add(monthYear);
     });
-    
-    return Array.from(months);
-  };
-  
+  });
+
+  return Array.from(months);
+};

@@ -11,6 +11,8 @@ import { Loader } from "../../components/loader/Loader";
  */
 
 export const Transaction = (prop) => {
+  // to render table rows for Transaction Records
+  
   const renderTransactionRows = (transactions) => {
     return transactions?.map((transaction) => (
       <tr key={transaction.key}>
