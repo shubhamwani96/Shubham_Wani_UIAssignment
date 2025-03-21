@@ -10,6 +10,7 @@ import React from "react";
  */
 
 export const Textbox = (prop) => {
+  
   return (
     <input
       type={prop.type}

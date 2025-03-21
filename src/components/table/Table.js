@@ -11,7 +11,7 @@ import "../../../src/global.css";
 export const Table = (prop) => {
   
   return (
-    <div className={"table"}>
+    <div className={"TableWrapper"}>
       {prop.renderRows && prop.renderRows.length > 0 ? (
         <table border="1" cellPadding="10" style={{ margin: "auto" }}>
           <thead>

@@ -3,7 +3,7 @@ import { calculateRewardPoints } from "./CalculateRewardPoints";
 /**
  *Function to show each and every transaction data
  *@argument transactionData array of customer transaction data
- *@returns customerId, name, date, amount, point, key
+ *@returns key, customerId, name, date, amount, point
  */
 
 export const transformTransactionData = (transactionData) =>

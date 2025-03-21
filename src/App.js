@@ -4,7 +4,7 @@ import { Dashboard } from "./composites/dashboard/Dashboard";
 // Main React Component
 const App = () => {
   return (
-    <div className="App">
+    <div>
       <Dashboard />
     </div>
   );

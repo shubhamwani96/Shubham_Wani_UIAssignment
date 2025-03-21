@@ -13,7 +13,7 @@ import { extractUniqueMonthYear } from "../../utility/ExtractMonthYear";
  *RewardPoints Composite to show Monthly and Total Reward Points
  *@param rewardData Array of customer reward data
  *@param Loading boolean to check if data is loading
- *@returns table to show Monthly and Total Reward Data data
+ *@returns table to show Monthly and Total Reward Data
  */
 
 export const RewardPoints = (prop) => {
@@ -26,10 +26,10 @@ export const RewardPoints = (prop) => {
   useEffect(() => {
     if (debouncedQuery) {
       // Filter customers based on the debounced query
-      const results = rewards.filter((customer) =>
+      const filteredCustomerList = rewards.filter((customer) =>
         customer.name.toLowerCase().includes(debouncedQuery.toLowerCase())
       );
-      setFilteredCustomers(results);
+      setFilteredCustomers(filteredCustomerList);
     } else {
       setFilteredCustomers(rewards);
     }

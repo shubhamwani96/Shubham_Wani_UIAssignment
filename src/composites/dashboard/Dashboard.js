@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { RewardPoints } from "../rewardPoints/RewardPoints.js";
 import { Transaction } from "../transactionRecord/Transaction.js";
 
@@ -11,7 +11,7 @@ import { Transaction } from "../transactionRecord/Transaction.js";
 export const Dashboard = () => {
   const [customerData, setCustomerData] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+
   useEffect(() => {
     setLoading(true);
 
@@ -34,7 +34,7 @@ export const Dashboard = () => {
         setLoading(false);
         alert("There was a problem with the fetch operation:", error);
       });
-  }, []); //Empty dependency array ensures this effect runs only once after the initial render
+  }, []); //Empty dependency array ensures this useEffect runs only once after the initial render
 
   return (
     <>

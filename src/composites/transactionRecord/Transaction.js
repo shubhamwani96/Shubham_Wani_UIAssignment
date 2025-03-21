@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "../../components/table/Table";
 import { transformTransactionData } from "../../utility/TransactionData";
 import { Loader } from "../../components/loader/Loader";
+import "../../../src/global.css";
 
 /**
  *Transaction Composite to show transaction records
@@ -12,7 +13,7 @@ import { Loader } from "../../components/loader/Loader";
 
 export const Transaction = (prop) => {
   // to render table rows for Transaction Records
-  
+
   const renderTransactionRows = (transactions) => {
     return transactions?.map((transaction) => (
       <tr key={transaction.key}>

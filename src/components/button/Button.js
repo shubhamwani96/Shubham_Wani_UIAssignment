@@ -8,5 +8,6 @@ import React from "react";
  */
 
 export const Button = (prop) => {
+  
   return <button onClick={prop.onClick}>{prop.children}</button>;
 };
